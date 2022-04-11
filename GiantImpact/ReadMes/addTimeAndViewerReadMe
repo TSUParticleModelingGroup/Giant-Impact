@@ -1,0 +1,6 @@
+1. Open a terminal in this folder. (right click in this window and it should be one of the options)
+2. Open the setupImpactAddTime file and set the time to add to the impact. (Save the file)
+4. type ./runImpactAddTime in the terminal. This will continue the run of the impact for as long as you 
+	in the setupImpactAddTime file.
+5. type ./runImpactView to view your impact.
+
