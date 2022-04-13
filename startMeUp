@@ -1,0 +1,6 @@
+cd ./LinuxScripts 
+chmod 777 *
+cp compileAll ..
+cp runGTI ..
+cp ../ReadMes/generateTargetImpactorReadMe ..
+cp ../SetupTemplates/setupGeneratingTargetImpactor ..
