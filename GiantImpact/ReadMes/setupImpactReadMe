@@ -1,0 +1,9 @@
+1. Open a terminal in this folder. (right click in this window and it should be one of the options)
+2. Open the setupImpactInitialization file and set the parameters for the impact. (Save the file)
+4. type ./runImpactInitialization in the terminal. This will place the target and impactor at the 
+	specified locations and give them specified velocities. It will then create a time stamped folder 
+	in the ImpactBin folder and place them there. (Note the time stamp only goes down to the minute so 
+	if you make more than one in a minute the program will complain.) 
+5. Go into your new folder to add time to your impact and to view your impact. 
+	Initially you just have an impact at time equal to zero (One still frame of time, positions, and vilocities)
+

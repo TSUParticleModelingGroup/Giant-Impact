@@ -1,0 +1,6 @@
+Additional time to add to impact in days.
+AdditionTime = 10.0;
+
+Dt = 0.002;
+DrawRate = 100;
+RecordRate = 100;
