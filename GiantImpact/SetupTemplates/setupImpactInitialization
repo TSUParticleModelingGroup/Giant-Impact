@@ -1,0 +1,22 @@
+Branch positions of the bodies in kilometers from the origin:
+
+InitialPosition1.x = 20000.0;
+InitialPosition1.y = 0.0;
+InitialPosition1.z = 0.0;
+
+InitialPosition2.x = -20000.0;
+InitialPosition2.y = 0.0;
+InitialPosition2.z = 0.0;
+
+Branch velocities of the bodies in kilometers per second:
+
+InitialVelocity1.x = 0.0;
+InitialVelocity1.y = 0.0;
+InitialVelocity1.z = 0.0;
+
+InitialVelocity2.x = 0.0;
+InitialVelocity2.y = 0.0;
+InitialVelocity2.z = 0.0;
+
+
+

@@ -1,0 +1,44 @@
+# Compile script
+
+echo "*******************"
+cd ./Code/GenerateTargetImpactorCode
+echo "Compiling GenerateTargetImpactor exicutable"
+nvcc generateTargetImpactor.cu -o generateTargetImpactor.exe -lglut -lm -lGLU -lGL -O3 
+chmod 777 ./generateTargetImpactor.exe
+rm -f ../../Executables/generateTargetImpactor.exe
+mv ./generateTargetImpactor.exe ../../Executables
+cd ../../
+echo "*******************"
+
+echo "*******************"
+cd ./Code/ImpactCode
+echo "Compiling impactInitialization exicutable"
+nvcc impactInitialization.cu -o impactInitialization.exe -lglut -lm -lGLU -lGL -O3 
+chmod 777 ./impactInitialization.exe
+rm -f ../../Executables/impactInitialization.exe
+mv ./impactInitialization.exe ../../Executables
+cd ../../
+echo "*******************"
+
+echo "*******************"
+cd ./Code/ImpactCode
+echo "Compiling impactAddTime exicutable"
+nvcc impactAddTime.cu -o impactAddTime.exe -lglut -lm -lGLU -lGL -O3 
+chmod 777 ./impactAddTime.exe
+rm -f ../../Executables/impactAddTime.exe
+mv ./impactAddTime.exe ../../Executables
+cd ../../
+echo "*******************"
+
+echo "*******************"
+cd ./Code/ImpactCode
+echo "Compiling impactViewer exicutable"
+nvcc impactViewer.cu -o impactViewer.exe -lglut -lm -lGLU -lGL -O3 
+chmod 777 ./impactViewer.exe
+rm -f ../../Executables/impactViewer.exe
+mv ./impactViewer.exe ../../Executables
+cd ../../
+echo "*******************"
+
+
+
