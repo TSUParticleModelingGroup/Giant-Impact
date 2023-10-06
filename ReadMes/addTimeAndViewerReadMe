@@ -1,6 +1,37 @@
-1. Open a terminal in this folder. (right click in this window and it should be one of the options)
-2. Open the setupImpactAddTime file and set the time to add to the impact. (Save the file)
-4. type ./runImpactAddTime in the terminal. This will continue the run of the impact for as long as you 
-	in the setupImpactAddTime file.
-5. type ./runImpactView to view your impact.
 
+-----The following steps are for adding time to an impact or viewing an impact.-----
+
+1. Open a terminal in this folder. 
+   A shortcut is to right click and choose "Open in Terminal".
+
+2. Open the setupImpactAddTime file and set the time to add to the impact. You can also modify
+   parameters to change the time step, draw rate, and record rate. Don't forget to save the file.
+
+3. To actually add time to the impact, in the terminal, type 
+
+	./runImpactAddTime
+	
+   Note, this will add additional time to the impact starting from where it left off.
+
+4. At any time, to view the entire impact, in the terminal, type
+
+	./runImpactViewer
+	
+   Note, the viewer does no n-body calculations. It simply reads the impactPosVel file and displays
+   frames to the screen.
+
+
+
+-----The following is just information about the impactInformation folder and runStatsFile file-----
+
+- The runStatsFile file contains stats about the impact up to the current time. It is updated every time
+  runImpactAddTime is called.
+
+- The impactInformation folder contains 3 files:
+
+  	The impactPosVel file (a binary file) contains the positions and velocities of all elements in the impact.
+  	
+  	The initialStatsFile file contains the initial (ie. time = 0) stats of the impact. 
+  	
+  	The setupImpactInitialization file contains a copy of the setup file that set up the initial conditions of
+  	the impact.

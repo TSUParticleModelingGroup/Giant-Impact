@@ -25,7 +25,7 @@ void allocateMemory()
 	Vel = (float4*)malloc(TotalNumberOfElements*sizeof(float4));
 	
 	printf("\n ***********************************************************************");
-	printf("\n Memory has been allocated and GPU has been setup.");
+	printf("\n Memory has been allocated.");
 	printf("\n ***********************************************************************\n");
 }
 
@@ -48,16 +48,17 @@ void readFrame()
 {
 	int elementsRead;
 	int seekReturn;
+	float time;
 	
 	if(ForwardBackward == 1)
 	{
-		elementsRead = fread(&RunTime, sizeof(float), 1, ImpactPosVelFile);
+		elementsRead = fread(&time, sizeof(float), 1, ImpactPosVelFile);
 		if(elementsRead != 1)
 		{
 			printf("\n Error reading frame\n");
 			Pause = 1;
 		}
-		printf("\n RunTime = %f", RunTime);
+		printf("\n Time = %f", time);
 		
 		elementsRead = fread(Pos, sizeof(float4), TotalNumberOfElements, ImpactPosVelFile);
 		if(elementsRead != TotalNumberOfElements)
@@ -83,13 +84,13 @@ void readFrame()
 		}
 		else
 		{
-			elementsRead = fread(&RunTime, sizeof(float), 1, ImpactPosVelFile);
+			elementsRead = fread(&time, sizeof(float), 1, ImpactPosVelFile);
 			if(elementsRead != 1)
 			{
 				printf("\n Error reading frame\n");
 				Pause = 1;
 			}
-			printf("\n RunTime = %f", RunTime);
+			printf("\n Time = %f", time);
 			elementsRead = fread(Pos, sizeof(float4), TotalNumberOfElements, ImpactPosVelFile);
 			if(elementsRead != TotalNumberOfElements)
 			{

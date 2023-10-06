@@ -1,6 +1,19 @@
-Additional time to add to impact in days.
+* Additional time to add to impact in days.
 AdditionTime = 10.0;
 
+* Time step.
 Dt = 0.002;
+
+* This is how many time steps pass before the current impact is updated (graphically) on the screen.
+* The smaller the value, the more often you will record to the screen.
 DrawRate = 100;
+
+* This the number of time steps that passes between successive recordings of positions and velocities
+* to the impactPosVel file, which is used to view and analyze impacts.
+* The smaller the value, the more frames you will be storing.
 RecordRate = 100;
+
+
+**Note**
+* DrawRate only affects graphical outputs of active impact generation.
+* RecordRate affects writing to the disk. 

@@ -1,10 +1,35 @@
-1. Open a terminal in this folder. (right click in this window and it should be one of the options)
-2. type ./compileAll in the terminal. This will compile all the code and put it in the correct locations.
-	(Note this only needs to be done once unless you got in the source code and changed something.)
-3. Open the setupGeneratingTargetImpactor file and set the parameters for the run. (Save the file)
-4. type ./runGTI in the terminal. This will generate a Target and Impact with the specification you 
-	set up in the setupGeneratingTargetImpactor file. These will be put in a time stamped folder in the 
-	TargetImpactorBin. (Note the time stamp only goes down to the minute so if you make more than one
-	in a minute the program will complain.) 
-5. Go into your new folder to set up an impact. 
 
+-----The following steps set up the Target and Impactor bodies.-----
+
+1. Open a terminal in this folder (Giant-Impact). 
+   A shortcut is to right click and choose "Open in Terminal".
+
+2. To compile all the code and place it in the correct locations, in the terminal, type:
+
+        ./compileAll 
+   
+   (Note this only needs to be done once unless you modify the source code.)
+
+3. Now, you should open the setupGeneratingTargetImpactor file and set the parameters for your run. 
+   These parameters will set the parameters for the two bodies that will be created.
+   Once you are happy with your setup parameters, save the file.
+
+4. Next, you will generate the Target and Impactor with the parameters you set in the 
+   setupGeneratingTargetImpactor file. First, the bodies will be created and allowed to settle into place.
+   Then, the bodies will be spun, and again, allowed to settle. At this point, the bodies are completely
+   independent and have no influence on one another. Once this process has been completed, the Target and 
+   Impactor will be put in a time stamped folder in the TargetImpactorBin. 
+   (Note the time stamp only goes down to the minute so if you make more than one
+   in a minute the program will throw an error.) To generate the bodies, in the terminal type:
+	
+	./runGTI
+	
+   You should note the date/time so you can identify the bodies you just created.
+
+5. Open the TargetImpactorBin folder, and you will find the generated folder containing the two bodies.
+   If you would like, you can rename this folder to a more descriptive name. Go into this folder. In this
+   folder you will find two folders and three files, containing all the information you will need to create
+   impacts using the two bodies you created.
+   
+6. Now for instructions on how to generate an impact using the two bodies you just created, follow the
+   instructions provided in the setupImpactReadMe file.

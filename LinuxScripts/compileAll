@@ -2,7 +2,7 @@
 
 echo "*******************"
 cd ./Code/GenerateTargetImpactorCode
-echo "Compiling GenerateTargetImpactor exicutable"
+echo "Compiling GenerateTargetImpactor executable"
 nvcc generateTargetImpactor.cu -o generateTargetImpactor.exe -lglut -lm -lGLU -lGL -O3 
 chmod 777 ./generateTargetImpactor.exe
 rm -f ../../Executables/generateTargetImpactor.exe
@@ -12,7 +12,7 @@ echo "*******************"
 
 echo "*******************"
 cd ./Code/ImpactCode
-echo "Compiling impactInitialization exicutable"
+echo "Compiling impactInitialization executable"
 nvcc impactInitialization.cu -o impactInitialization.exe -lglut -lm -lGLU -lGL -O3 
 chmod 777 ./impactInitialization.exe
 rm -f ../../Executables/impactInitialization.exe
@@ -22,7 +22,7 @@ echo "*******************"
 
 echo "*******************"
 cd ./Code/ImpactCode
-echo "Compiling impactAddTime exicutable"
+echo "Compiling impactAddTime executable"
 nvcc impactAddTime.cu -o impactAddTime.exe -lglut -lm -lGLU -lGL -O3 
 chmod 777 ./impactAddTime.exe
 rm -f ../../Executables/impactAddTime.exe
@@ -32,7 +32,7 @@ echo "*******************"
 
 echo "*******************"
 cd ./Code/ImpactCode
-echo "Compiling impactViewer exicutable"
+echo "Compiling impactViewer executable"
 nvcc impactViewer.cu -o impactViewer.exe -lglut -lm -lGLU -lGL -O3 
 chmod 777 ./impactViewer.exe
 rm -f ../../Executables/impactViewer.exe

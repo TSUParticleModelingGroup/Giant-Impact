@@ -1,9 +1,40 @@
-1. Open a terminal in this folder. (right click in this window and it should be one of the options)
-2. Open the setupImpactInitialization file and set the parameters for the impact. (Save the file)
-4. type ./runImpactInitialization in the terminal. This will place the target and impactor at the 
-	specified locations and give them specified velocities. It will then create a time stamped folder 
-	in the ImpactBin folder and place them there. (Note the time stamp only goes down to the minute so 
-	if you make more than one in a minute the program will complain.) 
-5. Go into your new folder to add time to your impact and to view your impact. 
-	Initially you just have an impact at time equal to zero (One still frame of time, positions, and vilocities)
 
+-----The following steps set up the initial conditions for an impact.-----
+
+1. Open a terminal in this folder. 
+   A shortcut is to right click and choose "Open in Terminal".
+   
+2. Open the setupImpactInitialization file and set the parameters for the impact.
+   Note, this just sets the initial positions and velocities of the two bodies to be impacted.
+   Don't forget to save the file.
+
+3. Next you will generate an initial impact (ie, time = 0) with the specified positions and velocities.
+   To do this, type this in the terminal:
+   
+   ./runImpactInitialization
+
+   This will then create a time stamped folder in the ImpactBin folder which contains 1 folder and 4 files. 
+   (Note the time stamp only goes down to the minute so	if you make more than one in a minute the program will 
+   throw an error.).
+   If you would like, you can change the name of this folder to something more descriptive.	
+	
+4. Go into your new folder and follow the instructions outlined in the addTimeAndViewerReadMe file. 
+
+
+
+-----The following is just information about the two folders in the current directory-----
+
+- The ImpactBin folder contains all impacts created for this set up of bodies.
+
+- The TargetImpactorInformation folder contains 4 files:
+
+  	The setupGeneratingTargetImpactor file is just a copy of the setup file in the Giant-Impact folder 
+  	that created this set of bodies.
+  
+  	The targetImpactorInitialPosVel file (a binary file) contains the positions and velocities of the 
+  	two bodies.
+  
+  	The targetImpactorParameters file contains unit conversion and other pertinent information about 
+  	the two bodies.
+
+  	The targetImpactorStats file contains general stats about the two bodies created.
