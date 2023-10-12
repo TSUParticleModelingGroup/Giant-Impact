@@ -132,5 +132,6 @@ Then type in this new terminal:
   	the impact.
 
 ## Acknowledements
-This readme and upkeep of this repository are managed by the Tarleton Particle Modeling Group.
+Upkeep of this repository is managed by the Tarleton Particle Modeling Group.
 Special thanks to the Tarleton HPC Lab for the use of its hardware.
+This ReadMe was written by Gavin McIntosh and Zachary Watson
