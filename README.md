@@ -1,6 +1,6 @@
 # Giant-Impact
 
-The giant impact hypothesis is the dominant theory explaining the formation of our Moon. However, its inability to produce an isotopically similar Earth-Moon system with correct angular momentum has cast a shadow on its validity. Computer-generated impacts have been successful in producing virtual systems that possess many of the physical properties we observe. Yet, addressing the isotopic similarities between the Earth and Moon coupled with correct angular momentum has proven to be challenging. Equilibration and evection resonance have been put forth as a means of reconciling the models. However, both were rejected in a meeting at The Royal Society in London. The main concern was that models were multi-staged and too complex. Here, we present initial impact conditions that produce an Earth-Moon system whose angular momentum and isotopic properties are correct. The model is straightforward and the results are a natural consequence of the impact.
+The giant impact hypothesis is the dominant theory explaining the formation of our Moon. However, its inability to produce an isotopically similar Earth-Moon system with correct angular momentum has cast a shadow on its validity. Computer-generated impacts have been successful in producing virtual systems that possess many of the physical properties we observe. Yet, addressing the isotopic similarities between the Earth and Moon coupled with correct angular momentum has proven to be challenging. Equilibration and evection resonance have been put forth as a means of reconciling the models. However, both were rejected in a meeting at The Royal Society in London. The main concern was that the models were multi-staged and too complex. Here, we present initial impact conditions that produce an Earth-Moon system whose angular momentum and isotopic properties are correct. The model is straightforward and the results are a natural consequence of the impact.
 
 ## Requirements
 * OS: Debian-based Linux distribution (Ubuntu tested)
@@ -134,4 +134,4 @@ Then type in this new terminal:
 ## Acknowledements
 Upkeep of this repository is managed by the Tarleton Particle Modeling Group.
 Special thanks to the Tarleton HPC Lab for the use of its hardware.
-This ReadMe was written by Gavin McIntosh and Zachary Watson
+This ReadMe was written by Gavin McIntosh and Zachary Watson.
