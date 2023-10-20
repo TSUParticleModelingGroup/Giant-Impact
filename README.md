@@ -3,7 +3,7 @@
 The giant impact hypothesis is the dominant theory explaining the formation of our Moon. However, its inability to produce an isotopically similar Earth-Moon system with correct angular momentum has cast a shadow on its validity. Computer-generated impacts have been successful in producing virtual systems that possess many of the physical properties we observe. Yet, addressing the isotopic similarities between the Earth and Moon coupled with correct angular momentum has proven to be challenging. Equilibration and evection resonance have been put forth as a means of reconciling the models. However, both were rejected in a meeting at The Royal Society in London. The main concern was that models were multi-staged and too complex. Here, we present initial impact conditions that produce an Earth-Moon system whose angular momentum and isotopic properties are correct. The model is straightforward and the results are a natural consequence of the impact.
 
 ## Requirements
-* OS: Debian-based Linux distribution
+* OS: Debian-based Linux distribution (Ubuntu tested)
 * Hardware: An Nvidia GPU with semi-current drivers installed
 * Software: The following dependencies are installed in the startMeUp script:
 	* build-essential
