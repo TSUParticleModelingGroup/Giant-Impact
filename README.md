@@ -15,7 +15,7 @@ The giant impact hypothesis is the dominant theory explaining the formation of o
 
 ## Instructions
 
-Open a terminal in this folder (Giant-Impact). 
+After cloning the repository, open a terminal in this folder (Giant-Impact). 
 
 Go to this new terminal and type:
 ```sh
