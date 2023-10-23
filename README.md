@@ -39,6 +39,8 @@ DOI: 10.1007/s12036-018-9515-8
   </a>
 </div>
 
+The code was written to find and analyze an Earth-Moon system if one arises from an impact between two bodies. But, the code can be used to study the impact between any two heavenly bodies. Just be aware that the analyzing functions will be going out and looking for an Earth and a Moon in the resultant debris of material.
+
 ## Requirements
 * OS: Debian-based Linux distribution (Ubuntu tested)
 * Hardware: An Nvidia GPU with semi-current drivers installed
