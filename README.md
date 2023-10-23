@@ -1,6 +1,43 @@
 # Giant-Impact
 
-The giant impact hypothesis is the dominant theory explaining the formation of our Moon. However, its inability to produce an isotopically similar Earth-Moon system with correct angular momentum has cast a shadow on its validity. Computer-generated impacts have been successful in producing virtual systems that possess many of the physical properties we observe. Yet, addressing the isotopic similarities between the Earth and Moon coupled with correct angular momentum has proven to be challenging. Equilibration and evection resonance have been put forth as a means of reconciling the models. However, both were rejected in a meeting at The Royal Society in London. The main concern was that the models were multi-staged and too complex. Here, we present initial impact conditions that produce an Earth-Moon system whose angular momentum and isotopic properties are correct. The model is straightforward and the results are a natural consequence of the impact.
+There has been some interest in making our lunar forming impact code more user-friendly and accessible to other researchers. The original code was 5000 plus lines of code that just grew over the years making it just too convoluted to explain in a readme. Hence, we rewrote the code in hopes that it would be more user-friendly. But, if you would like to look at the old lunar-forming-impact code you can find it at the following link.
+
+https://github.com/TSUParticleModelingGroup/lunar-forming-impacts
+
+The new code is written for only one GPU but if there is interest we would consider extending it to work on multiple GPUs. Also if there are any questions, suggestions, or bugs you would like addressed please email them to me at wyatt@tarleton.edu. Please start the subject line with MoonCode so they will not get lost in the hundreds of emails I get each day.
+
+## Brief background on the TSU Particle Modeling Group:
+
+Most of our work is based on the N-body modeling work done by Donald Greenspan who wrote over 20 books on numerical analysis and computational modeling.
+
+https://mathshistory.st-andrews.ac.uk/Biographies/Greenspan_Donald/
+
+One of Dr. Greenspan’s core beliefs was to make models that worked and were as simple and understandable as possible. He based much of his work on the following quote from Richard Feynman. https://mathshistory.st-andrews.ac.uk/Biographies/Feynman/
+
+“If, in some cataclysm, all of scientific knowledge were to be destroyed, and only one sentence passed on to the next generation of creatures, what statement would contain the most information in the fewest words? I believe it is the atomic hypothesis (or the atomic fact, or whatever you wish to call it) that all things are made of atoms — little particles that move around in perpetual motion, attracting each other when they are a little distance apart, but repelling upon being squeezed into one another. In that one sentence, you will see, there is an enormous amount of information about the world, if just a little imagination and thinking are applied.”
+
+Dr. Greenspan did his work on Cray supercomputers.  Supercomputers priced out most small groups wanting to run large N-body problems. Jensen Huang and the NVIDIA corporation removed this price barrier in 2007 with the release of CUDA. CUDA is an API that allows developers to harness the power of NVIDIA GPUs. Due to Dr. Greenspan's passing in 2010 the TSU Particle Modeling Group felt driven to continue his work, but now accelerated on NVIDIA GPUs in place of Cray supercomputers.
+
+
+## Background on our Giant Impact Hypothesis work:
+
+The giant impact hypothesis proposed by Hartmann and Ward in 1975 is the dominant theory explaining the formation of our Moon. Our group did not like that researchers were using one model to simulate the creation of the lunar forming disk and then citing other models to say that the disk could coalesce into our Moon. Hence, we built a single model that created the proto-lunar disk and have it coalesce into a moon. This is the model we are presenting in this GitHub repository. Details about the inner workings of the model can be found in our paper: “Lunar-Forming Giant Impact Model Utilizing Modern Graphics Processing Units”
+DOI: 10.1007/s12036-014-9306-9
+<br />
+<div align="center">
+  <a>
+    <img src="LunarForming1.png" alt="LunarForming1" width="600" height="350">
+  </a>
+</div>
+
+Next, we saw on the cover of Nature magazine that lunar forming impact models were being challenged because they were unable to simultaneously answer the isotopic and angular momentum constraints of the Earth-Moon system. We thought that the simplicity and versatility of our model would make it well-suited to tackle the proposed problem. This included searching through the large impact parameter space to find initial conditions that would produce an isotopically similar Earth and Moon with the proper angular momentum. We were able to do this rapidly, and along the way answered several other open questions about the Earth-Moon system. This is all explained in more detail in our paper: “Creating an Isotopically Similar Earth-Moon System with Correct Angular Momentum from a Giant Impact”
+DOI: 10.1007/s12036-018-9515-8
+<br />
+<div align="center">
+  <a>
+    <img src="LunarForming2.jpg" alt="LunarForming2" width="700" height="600">
+  </a>
+</div>
 
 ## Requirements
 * OS: Debian-based Linux distribution (Ubuntu tested)
