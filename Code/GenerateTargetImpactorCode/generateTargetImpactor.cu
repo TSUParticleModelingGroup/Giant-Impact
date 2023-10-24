@@ -715,7 +715,12 @@ void generateTargetImpactor()
 		{
 			copyPosVelFromGPU();
 			drawStuff();
-			printf("\n Setup time in hours = %f\n", RunTime*UnitTime/3600.0);
+			//fflush(stdout); // Flush the output buffer to ensure the cursor is at the beginning of the line
+			// Print spaces to clear the line
+			// printf("\r\033[K");
+			//fflush(stdout);
+			//for (int i = 0; i < 40; i++) printf(" ");
+			printf("\n Setup time in hours = %f", RunTime*UnitTime/3600.0);
 			DrawCount = 0;
 		}
 		
@@ -771,19 +776,6 @@ void postSetup()
 int main(int argc, char** argv)
 { 
 	preSetup();
-	
-	XWindowSize = 1000;
-	YWindowSize = 1000; 
-	Near = 0.2;
-	Far = 600.0;
-
-	double	viewBoxSize = 100.0;
-	Left = -viewBoxSize;
-	Right = viewBoxSize;
-	Bottom = -viewBoxSize;
-	Top = viewBoxSize;
-	Front = viewBoxSize;
-	Back = -viewBoxSize;
 
 	//Direction here your eye is located location
 	EyeX = 0.0;

@@ -156,7 +156,7 @@ void readParametersFromGenerateBodies()
 	data.close();
 	
 	printf("\n **************************************************************");
-	printf("\n These are the parameters that were read in from the collideParameters file.");
+	printf("\n These are the parameters (in our units) that were used to generate the target and impactor.");
 	printf("\n UnitTime = %f", UnitTime);
 	printf("\n UnitLength = %f", UnitLength);
 	printf("\n UnitMass = %f", UnitMass);

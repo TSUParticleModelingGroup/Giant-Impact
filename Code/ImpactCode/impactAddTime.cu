@@ -64,7 +64,7 @@ void readSetupImpactAddTime()
 	if(data.is_open() == 1)
 	{
 		getline(data,name,'=');
-		data >> AdditionalTime;
+		data >> AdditionalTime; 
 		getline(data,name,'=');
 		data >> Dt;
 		getline(data,name,'=');
@@ -87,7 +87,11 @@ void readSetupImpactAddTime()
 	printf("\n RecordRate = %d", RecordRate);
 	printf("\n ***********************************************************************\n");
 	
-	AdditionalTime *= 3600.0/UnitTime;
+	// AdditionalTime is in days. First, take this to seconds.
+	AdditionalTime *= 24.0*60.0*60.0;
+	
+	// Now, take AdditionalTime into our units.
+	AdditionalTime /= UnitTime;
 }
 
 //These are the constants needed in the force and move functions. I put them into structures so they would be easier to pass to the functions.
@@ -376,7 +380,9 @@ void nBodyCollisionSingleGPU()
 			cudaErrorCheck("cudaMemcpyAsync Vel");
 			drawPictureCollision();
 			DrawCount = 0;
-			printf("\n Impact run time = %f hours\n", RunTime*UnitTime/3600.0);
+			// printf("\n Impact run time = %f hours\n", RunTime*UnitTime/3600.0);
+			//float myTime = RunTime*UnitTime/3600.0;
+			terminalPrint();
 		}
 				
 		if(RecordCount == RecordRate) 
@@ -441,20 +447,10 @@ void postSetup()
 
 int main(int argc, char** argv)
 { 
-	preSetup();
+	ViewingImpact = 0;
+	GeneratingImpact = 1;
 	
-	XWindowSize = 1000;
-	YWindowSize = 1000; 
-	Near = 0.2;
-	Far = 600.0;
-
-	double	viewBoxSize = 100.0;
-	Left = -viewBoxSize;
-	Right = viewBoxSize;
-	Bottom = -viewBoxSize;
-	Top = viewBoxSize;
-	Front = viewBoxSize;
-	Back = -viewBoxSize;
+	preSetup();
 
 	//Direction here your eye is located location
 	RadiusOfEarth /= UnitLength;

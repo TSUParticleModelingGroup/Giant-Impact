@@ -1,24 +1,24 @@
 ** Branch positions of the bodies in kilometers from the origin:
 
 * Body 1
-InitialPosition1.x = 20000.0;
-InitialPosition1.y = 0.0;
-InitialPosition1.z = 0.0;
+InitialPosition1.x = -44500.0;
+InitialPosition1.y = -200.0;
+InitialPosition1.z = -1810.0;
 
 * Body 2
-InitialPosition2.x = -20000.0;
-InitialPosition2.y = 0.0;
-InitialPosition2.z = 0.0;
+InitialPosition2.x = 44500.0;
+InitialPosition2.y = 200.0;
+InitialPosition2.z = 1810.0;
 
 ** Branch velocities of the bodies in kilometers per second:
 
 * Body 1
-InitialVelocity1.x = 0.0;
+InitialVelocity1.x = 8.8;
 InitialVelocity1.y = 0.0;
 InitialVelocity1.z = 0.0;
 
 * Body 2
-InitialVelocity2.x = 0.0;
+InitialVelocity2.x = -8.8;
 InitialVelocity2.y = 0.0;
 InitialVelocity2.z = 0.0;
 

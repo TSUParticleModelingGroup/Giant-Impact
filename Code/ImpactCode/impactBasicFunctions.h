@@ -652,7 +652,10 @@ float3 getAngularMomentumCollision(int scope)
 
 void drawPictureCollision()
 {
-	if(DrawType == 1) drawPictureNormal();
+	if(DrawType == 1) 
+	{
+		drawPictureNormal();
+	}
 	if(DrawType == 2) 
 	{
 		drawAnalysisPicture();
@@ -731,6 +734,7 @@ void drawPictureNormal()
 
 void drawAnalysisPicture()
 {
+	printf("\n Catculating what is the Earth and Moon. This may take a few minutes.\n");
 	findEarthAndMoon();
 	float massSystem = getMassCollision(1);
 	float massEarth = getMassCollision(2);
@@ -868,6 +872,11 @@ void drawAnalysisPicture()
 	
 	free(EarthIndex);
 	free(MoonIndex);
+	printf("\n The yellow vector points in the direction of the angular momentum of the Earth-Moon system.");
+	printf("\n The blue vector points in the direction of the angular momentum of the Earth.");
+	printf("\n The white vector points in the direction of the angular momentum of the Moon.");
+	printf("\n The green vector points in the direction of the linear velocity of the Moon.");
+	printf("\n The viewer is paused hit g to run.\n");
 }
 
 void recordFinalImpactStat(double time)

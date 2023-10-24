@@ -53,19 +53,21 @@ void readFrame()
 	if(ForwardBackward == 1)
 	{
 		elementsRead = fread(&time, sizeof(float), 1, ImpactPosVelFile);
+		
 		if(elementsRead != 1)
 		{
 			printf("\n Error reading frame\n");
 			Pause = 1;
 		}
-		printf("\n Time = %f", time);
+		terminalPrint();
+		// printf("\n Time = %f", time);
 		
 		elementsRead = fread(Pos, sizeof(float4), TotalNumberOfElements, ImpactPosVelFile);
-		if(elementsRead != TotalNumberOfElements)
+		/*if(elementsRead != TotalNumberOfElements)
 		{
 			printf("\n End of file reached\n");
 			Pause = 1;
-		}
+		}*/
 		elementsRead = fread(Vel, sizeof(float4), TotalNumberOfElements, ImpactPosVelFile);
 		if(elementsRead != TotalNumberOfElements)
 		{
@@ -90,7 +92,8 @@ void readFrame()
 				printf("\n Error reading frame\n");
 				Pause = 1;
 			}
-			printf("\n Time = %f", time);
+			// printf("\n RunTime = %f", RunTime);
+			terminalPrint();
 			elementsRead = fread(Pos, sizeof(float4), TotalNumberOfElements, ImpactPosVelFile);
 			if(elementsRead != TotalNumberOfElements)
 			{
@@ -105,6 +108,7 @@ void readFrame()
 			}
 		}
 	}
+	RunTime = time;
 }
 
 void nBodyCollisionSingleGPU()
@@ -136,22 +140,12 @@ void postSetup()
 }
 
 int main(int argc, char** argv)
-{ 
+{
+	ViewingImpact = 1;
+	GeneratingImpact = 0;
+	 
 	preSetup();
 	
-	XWindowSize = 1000;
-	YWindowSize = 1000; 
-	Near = 0.2;
-	Far = 600.0;
-
-	double	viewBoxSize = 100.0;
-	Left = -viewBoxSize;
-	Right = viewBoxSize;
-	Bottom = -viewBoxSize;
-	Top = viewBoxSize;
-	Front = viewBoxSize;
-	Back = -viewBoxSize;
-
 	//Direction here your eye is located location
 	RadiusOfEarth /= UnitLength;
 	EyeX = 0.0;
@@ -179,14 +173,17 @@ int main(int argc, char** argv)
 	glLoadIdentity();
 	glFrustum(-0.2, 0.2, -0.2, 0.2, Near, Far);
 	glMatrixMode(GL_MODELVIEW);
-	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glClearColor(0.1, 0.1, 0.1, 0.0);
 	
 	glShadeModel(GL_SMOOTH);
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	
-	GLfloat light_position[] = {1.0, 1.0, 1.0, 0.0};
-	GLfloat light_ambient[]  = {0.0, 0.0, 0.0, 1.0};
-	GLfloat light_diffuse[]  = {1.0, 1.0, 1.0, 1.0};
+	GLfloat light_position[] = {1.0, 0.0, 0.0, 0.0};
+	GLfloat light_position2[] = {1.0, 0.0, 0.0, 0.0};
+
+	//GLfloat light_ambient[]  = {0.0, 0.0, 0.0, 1.0};
+	GLfloat light_ambient[]  = {0.2, 0.2, 0.2, 1.0};
+	GLfloat light_diffuse[]  = {0.8, 0.8, 0.8, 1.0};
 	GLfloat light_specular[] = {1.0, 1.0, 1.0, 1.0};
 	GLfloat lmodel_ambient[] = {0.2, 0.2, 0.2, 1.0};
 	GLfloat mat_specular[]   = {1.0, 1.0, 1.0, 1.0};
@@ -204,13 +201,16 @@ int main(int argc, char** argv)
 	glEnable(GL_LIGHT0);
 	glEnable(GL_COLOR_MATERIAL);
 	glEnable(GL_DEPTH_TEST);
+
+	glLightfv(GL_LIGHT1, GL_POSITION, light_position2);
+	glEnable(GL_LIGHT1);
 	
 	glutReshapeFunc(reshape);
 	glutDisplayFunc(Display);
 	glutKeyboardFunc(KeyPressed);
 	glutIdleFunc(idle);
 	postSetup();
-	printf("\n *********** The program is paused press g to start *********** \n");
+	printf("\n *********** The program is paused. Press p to start *********** \n");
 	glutMainLoop();
 	return 0;
 }

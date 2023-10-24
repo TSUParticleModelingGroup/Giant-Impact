@@ -1,3 +1,4 @@
+#include <iostream>
 #include <GL/glut.h>
 #include <GL/glu.h>
 #include <GL/gl.h>
@@ -14,7 +15,6 @@
 #include <curand.h>
 #include <curand_kernel.h>
 #include <signal.h>
-#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <time.h>
@@ -80,15 +80,25 @@ int Done = 0;
 int TranslateRotate = 1;
 int ForwardBackward = 1;
 int MovieOn = 0;
+int ViewingImpact;
+int GeneratingImpact;
 
 int* MovieBuffer;
 
 //Globals for setting up the viewing window 
 static int Window;
-int XWindowSize, YWindowSize; 
-double Near, Far;
+int XWindowSize = 1000;
+int YWindowSize = 1000; 
+double Near = 0.2;
+double Far = 1200;
 
-GLdouble Left, Right, Bottom, Top, Front, Back;
+#define VIEWBOXSIZE 100.0
+GLdouble Left = VIEWBOXSIZE; 
+GLdouble Right = VIEWBOXSIZE;  
+GLdouble Bottom = VIEWBOXSIZE;
+GLdouble Top = VIEWBOXSIZE;
+GLdouble Front = VIEWBOXSIZE;
+GLdouble Back = VIEWBOXSIZE;
 
 //Direction here your eye is located location
 double EyeX, EyeY, EyeZ;
