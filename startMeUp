@@ -1,13 +1,30 @@
-echo ""
-echo "******Installing Dependencies******"
-echo ""
-sudo apt install build-essential -y
-sudo apt install mesa-utils -y
-sudo apt install freeglut3-dev -y
-sudo apt install nvidia-cuda-toolkit -y
-sudo apt install ffmpeg -y
 
-echo "******Dependencies successfully installed******"
+echo "The following dependencies are required to run the simulation:"
+echo "  build-essential"
+echo "  mesa-utils"
+echo "  freeglut3-dev"
+echo "  nvidia-cuda-toolkit"
+echo "  ffmpeg"
+echo ""
+echo "Do you wish to install them? yes/no"
+read choice
+yes="yes"
+no="no"
+
+if [ "$choice" == "$yes" ]; then
+	echo ""
+	echo "******Installing Dependencies******"
+	echo ""
+
+	sudo apt install build-essential -y
+	sudo apt install mesa-utils -y
+	sudo apt install freeglut3-dev -y
+	sudo apt install nvidia-cuda-toolkit -y
+	sudo apt install ffmpeg -y
+
+	echo "******Dependencies successfully installed******"
+fi
+
 echo ""
 echo "******Running first time setup******"
 echo ""
