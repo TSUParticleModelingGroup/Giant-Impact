@@ -12,9 +12,11 @@ Most of our work is based on the N-body modeling work done by Donald Greenspan w
 
 https://mathshistory.st-andrews.ac.uk/Biographies/Greenspan_Donald/
 
-One of Dr. Greenspan’s core beliefs was to make models that worked and were as simple and understandable as possible. He based much of his work on the following quote from Richard Feynman. https://mathshistory.st-andrews.ac.uk/Biographies/Feynman/
+One of Dr. Greenspan’s core beliefs was to make models that worked and were as simple and understandable as possible. He based much of his work on the following quote from Richard Feynman. 
 
 “If, in some cataclysm, all of scientific knowledge were to be destroyed, and only one sentence passed on to the next generation of creatures, what statement would contain the most information in the fewest words? I believe it is the atomic hypothesis (or the atomic fact, or whatever you wish to call it) that all things are made of atoms — little particles that move around in perpetual motion, attracting each other when they are a little distance apart, but repelling upon being squeezed into one another. In that one sentence, you will see, there is an enormous amount of information about the world, if just a little imagination and thinking are applied.”
+
+https://mathshistory.st-andrews.ac.uk/Biographies/Feynman/
 
 Dr. Greenspan did his work on Cray supercomputers.  Supercomputers priced out most small groups wanting to run large N-body problems. Jensen Huang and the NVIDIA corporation removed this price barrier in 2007 with the release of CUDA. CUDA is an API that allows developers to harness the power of NVIDIA GPUs. Due to Dr. Greenspan's passing in 2010 the TSU Particle Modeling Group felt driven to continue his work, but now accelerated on NVIDIA GPUs in place of Cray supercomputers.
 
