@@ -41,6 +41,8 @@ double AdditionalTime;
 
 int RecordRate;
 int RecordCount;
+int RecenterRate;
+int RecenterCount;
 
 FILE *ImpactPosVelFile;
 
@@ -71,6 +73,8 @@ void readSetupImpactAddTime()
 		data >> DrawRate;
 		getline(data,name,'=');
 		data >> RecordRate;
+		getline(data,name,'=');
+		data >> RecenterRate;
 	}
 	else
 	{
@@ -78,6 +82,32 @@ void readSetupImpactAddTime()
 		exit(0);
 	}
 	data.close();
+	
+	data.open("./ImpactInformation/viewCenteringInfo");
+	if(data.is_open() == 1)
+	{
+		getline(data,name,'=');
+		data >> InitialCenterOfMassX; 
+		getline(data,name,'=');
+		data >> InitialCenterOfMassY; 
+		getline(data,name,'=');
+		data >> InitialCenterOfMassZ; 
+		
+		getline(data,name,'=');
+		data >> InitialLinearVelocityX; 
+		getline(data,name,'=');
+		data >> InitialLinearVelocityY; 
+		getline(data,name,'=');
+		data >> InitialLinearVelocityZ; 
+		
+	}
+	else
+	{
+		printf("\n TSU Error could not open ./ImpactInformation/viewCenteringInfo file\n");
+		exit(0);
+	}
+	data.close();
+	
 	
 	printf("\n ***********************************************************************");
 	printf("\n These are the parameters that were read in from the setupImpactAddTime file.");
@@ -175,6 +205,7 @@ void allocateMemoryAndSetupGPU()
 void readTimeAndLastPosVel()
 {
 	size_t returnValue;
+	
 	
 	// Reading the positions and velocities.
 	ImpactPosVelFile = fopen("./ImpactInformation/impactPosVel","rb+");
@@ -370,6 +401,7 @@ void nBodyCollisionSingleGPU()
 		moveBodiesCollisionSingleGPU<<<GridConfig, BlockConfig>>>(Pos_DEV0, Vel_DEV0, Force_DEV0, MoveCollisionConstant);
 		DrawCount++;
 		RecordCount++;
+		RecenterCount++;
 		RunTime += Dt;
 		
 		if(DrawCount == DrawRate) 
@@ -397,6 +429,30 @@ void nBodyCollisionSingleGPU()
 			fwrite(Vel, sizeof(float4), TotalNumberOfElements, ImpactPosVelFile);	
 			RecordCount = 0;
 		}
+
+		if(RecenterCount == RecenterRate) 
+		{
+			cudaMemcpy( Pos, Pos_DEV0, TotalNumberOfElements *sizeof(float4), cudaMemcpyDeviceToHost );
+			cudaErrorCheck("cudaMemcpyAsync Pos");
+			cudaMemcpy( Vel, Vel_DEV0, TotalNumberOfElements *sizeof(float4), cudaMemcpyDeviceToHost );
+			cudaErrorCheck("cudaMemcpyAsync Vel");
+
+			float3 centerOfMassUniversalSystem = getCenterOfMassCollision(0);
+			float3 linearVelocityUniversalSystem = getLinearVelocityCollision(0);
+
+			for (int i = 0; i < TotalNumberOfElements; i++)
+			{
+				Pos[i].x += InitialCenterOfMassX - centerOfMassUniversalSystem.x;
+				Pos[i].y += InitialCenterOfMassY - centerOfMassUniversalSystem.y;
+				Pos[i].z += InitialCenterOfMassZ - centerOfMassUniversalSystem.z;
+
+				Vel[i].x += InitialLinearVelocityX - linearVelocityUniversalSystem.x;
+				Vel[i].y += InitialLinearVelocityY - linearVelocityUniversalSystem.y;
+				Vel[i].z += InitialLinearVelocityZ - linearVelocityUniversalSystem.z;
+			}
+			copyPosVelToGPU();
+			RecenterCount = 0;
+		}
 		
 		if(TotalRunTime < RunTime) 
 		{
@@ -406,6 +462,7 @@ void nBodyCollisionSingleGPU()
 			cudaErrorCheck("cudaMemcpyAsync Vel");
 			fclose(ImpactPosVelFile);
 			recordFinalImpactStat(RunTime);
+			recordViewCenteringInfo();
 			Done = 1;
 			Pause = 0;
 			if(MovieOn == 1) 
@@ -435,6 +492,7 @@ void preSetup()
 	DrawType = 1;
 	DrawQuality = 1;
 	RecordCount = 0;
+	RecenterCount = 0;
 	Pause = 0;  
 	TranslateRotate = 1;
 	MovieOn = 0;	

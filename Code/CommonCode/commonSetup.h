@@ -100,6 +100,16 @@ GLdouble Top = VIEWBOXSIZE;
 GLdouble Front = VIEWBOXSIZE;
 GLdouble Back = VIEWBOXSIZE;
 
+//Because of roundoff the center of mass and linear velocity will drift. We use these to keep the view centered.
+//Also we will be translating the view so we will adjusting center of mass in the translations.
+float InitialCenterOfMassX;
+float InitialCenterOfMassY;
+float InitialCenterOfMassZ;
+
+float InitialLinearVelocityX;
+float InitialLinearVelocityY;
+float InitialLinearVelocityZ;
+
 //Direction here your eye is located location
 double EyeX, EyeY, EyeZ;
 

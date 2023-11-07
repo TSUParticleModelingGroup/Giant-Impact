@@ -13,6 +13,14 @@ DrawRate = 100;
 * The smaller the value, the more frames you will be storing.
 RecordRate = 100;
 
+* Roundoff will cause the center of mass and the linear velocity of the system to drift.
+* This makes it hard to keep the view centered on what you are enterested in.
+* Hence we reset the center of mass and the linear velocity of the system to its initial 
+* value after every "RecenterRate" number of interations. This is time consuming but it will 
+* allow you to perform long runs and record movies without the need to constantly track 
+* the body you are enterested in.
+RecenterRate = 1000;
+
 
 **Note**
 * DrawRate only affects graphical outputs of active impact generation.

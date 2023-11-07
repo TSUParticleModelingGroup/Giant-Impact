@@ -61,7 +61,7 @@ void terminalPrint()
 	
 	printf(" (q) Quit the program\n");
 
-	printf(" (p) Pause/Unpause toggle............");
+	printf(" (g) Run/Pause toggle............");
 	if(Pause == 1) printf("The simulation is paused.\n\n");
 	else printf("The simulation is running.\n\n");
 	
@@ -72,8 +72,8 @@ void terminalPrint()
 	else printf(" Currently in rotation mode\n\n");
 	
 	printf(" (1) Draw elements as points\n");
-	if (ViewingImpact) printf(" (2) Draw elements as spheres (less performance than points)\n");
-	if (ViewingImpact) printf(" (@) Draws what the program thinks is the Earth and the Moon\n\n");
+	printf(" (2) Draw elements as spheres (less performance than points)\n");
+	printf(" (@) Draws what the program thinks is the Earth and the Moon\n\n");
 	
 	if (MovieOn) printf(" (m) Stop recording movie\t\t(Movie recording in progress)\n");
 	else printf(" (m) Start recording movie\n");	
@@ -81,11 +81,11 @@ void terminalPrint()
 
 	if (ViewingImpact)
 	{
-		printf(" (b) View run backward\n");
-		printf(" (f) View run forward\n");
+		printf(" (f/b) View run forward/backward............");
+		//printf(" (f) View run forward\n");
+		if (ForwardBackward == 1) printf(" Currently running forward\n");
+		else printf(" Currently running backward\n");
 	}
-	if (ForwardBackward == 1) printf(" Currently running forward\n");
-	else printf(" Currently running backward\n");
 	printf("\n");
 }
 
@@ -158,7 +158,7 @@ void KeyPressed(unsigned char key, int x, int y)
 		printf("\n Exiting program...Good Bye\n");
 		exit(0);
 	}
-	if(key == 'p')
+	if(key == 'g')
 	{
 		if (Pause == 0)
 			Pause = 1;

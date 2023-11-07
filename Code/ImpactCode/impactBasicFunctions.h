@@ -10,6 +10,7 @@ void drawAnalysisPicture();
 void setupInitialConditions();
 void recordInitialImpactStat();
 void recordFinalCollisionStat(double);
+void recordViewCenteringInfo();
 void recordPosAndVel();
 
 //void nBodyCollisionSingleGPU();
@@ -1070,6 +1071,20 @@ void recordFinalImpactStat(double time)
 	fclose(RunStatsFile);
 }
 
+void recordViewCenteringInfo()
+{
+	FILE *viewCenteringInfoFile = fopen("./ImpactInformation/viewCenteringInfo","wb");
+	fprintf(viewCenteringInfoFile,"\n InitialCenterOfMassX = %f\n", InitialCenterOfMassX);
+	fprintf(viewCenteringInfoFile,"\n InitialCenterOfMassY = %f\n", InitialCenterOfMassY);
+	fprintf(viewCenteringInfoFile,"\n InitialCenterOfMassZ = %f\n", InitialCenterOfMassZ);
+	
+	fprintf(viewCenteringInfoFile,"\n InitialLinearVelocityX = %f\n", InitialLinearVelocityX);
+	fprintf(viewCenteringInfoFile,"\n InitialLinearVelocityY = %f\n", InitialLinearVelocityY);
+	fprintf(viewCenteringInfoFile,"\n InitialLinearVelocityZ = %f\n", InitialLinearVelocityZ);
+	
+	fclose(viewCenteringInfoFile);
+}
+
 void recordContinuePosAndVel(double time)
 {
 	size_t returnValue;
@@ -1080,19 +1095,19 @@ void recordContinuePosAndVel(double time)
 	returnValue = fwrite(&time, sizeof(double), 1, ContinueRunPosAndVelFile);
 	if(returnValue != TotalNumberOfElements)
 	{
-		printf("\nTSU error: Error writing time to ContinueRunPosAndVelFile|n");
+		printf("\nTSU error: Error writing time to ContinueRunPosAndVelFile\n");
 		exit(0);
 	}
 	returnValue = fwrite(Pos, sizeof(float4), TotalNumberOfElements, ContinueRunPosAndVelFile);
 	if(returnValue != TotalNumberOfElements)
 	{
-		printf("\nTSU error: Error writing positions to ContinueRunPosAndVelFile|n");
+		printf("\nTSU error: Error writing positions to ContinueRunPosAndVelFile\n");
 		exit(0);
 	}
 	returnValue = fwrite(Vel, sizeof(float4), TotalNumberOfElements, ContinueRunPosAndVelFile);
 	if(returnValue != TotalNumberOfElements)
 	{
-		printf("\nTSU error: Error writing velocities to ContinueRunPosAndVelFile|n");
+		printf("\nTSU error: Error writing velocities to ContinueRunPosAndVelFile\n");
 		exit(0);
 	}
 	fclose(ContinueRunPosAndVelFile);

@@ -511,6 +511,25 @@ void recordInitialImpactStat()
 	
 	fprintf(statsFile,"\n\n*************************************************************************\n\n\n");
 	fclose(statsFile);
+	
+	InitialCenterOfMassX = centerOfMass.x;
+	InitialCenterOfMassY = centerOfMass.y;
+	InitialCenterOfMassZ = centerOfMass.z;
+
+	InitialLinearVelocityX = linearVelocity.x;
+	InitialLinearVelocityY = linearVelocity.y;
+	InitialLinearVelocityZ = linearVelocity.z;
+	
+	FILE *viewCenteringInfoFile = fopen("./ImpactInformation/viewCenteringInfo","wb");
+	fprintf(viewCenteringInfoFile,"\n InitialCenterOfMassX = %f\n", InitialCenterOfMassX);
+	fprintf(viewCenteringInfoFile,"\n InitialCenterOfMassY = %f\n", InitialCenterOfMassY);
+	fprintf(viewCenteringInfoFile,"\n InitialCenterOfMassZ = %f\n", InitialCenterOfMassZ);
+	
+	fprintf(viewCenteringInfoFile,"\n InitialLinearVelocityX = %f\n", InitialLinearVelocityX);
+	fprintf(viewCenteringInfoFile,"\n InitialLinearVelocityY = %f\n", InitialLinearVelocityY);
+	fprintf(viewCenteringInfoFile,"\n InitialLinearVelocityZ = %f\n", InitialLinearVelocityZ);
+	
+	fclose(viewCenteringInfoFile);
 }
 
 int main(int argc, char** argv)
